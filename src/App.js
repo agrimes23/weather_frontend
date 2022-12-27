@@ -4,6 +4,9 @@ import { Route, Routes, Link } from 'react-router-dom'
 import ShowCity from './components/ShowCity'
 import HomePage from './components/HomePage'
 import Navbar from './components/Navbar'
+import Dashboard from './components/Dashboard'
+import WeatherNotes from './components/WeatherNotes'
+
 
 
 const App = () => {
@@ -64,7 +67,9 @@ const App = () => {
       <Navbar />
       <Routes>  
         <Route path="/" element={<HomePage />}></Route>
-        <Route path="/showlocation" element={<ShowCity userList={userList} weatherApi={weatherApi}/>} />
+        <Route path="/cityweather" element={<ShowCity userList={userList} weatherApi={weatherApi}/>} />
+        <Route path="/mylist" element={<Dashboard />}></Route>
+        <Route path="/mylistcity" element={<WeatherNotes />}></Route>
       </Routes>
     </>
   )
