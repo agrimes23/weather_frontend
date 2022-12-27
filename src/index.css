@@ -6,9 +6,36 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url("https://wallpapercave.com/wp/EVszeFH.jpg");
+  width: 100vw;
+  height: 100vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+nav {
+  background-color: rgb(34, 34, 34, 0.95);
+}
+
+li {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 40px;
+}
+
+.home-page {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.search-city {
+  width: 50vw;
+  background: rgba(46, 46, 46, 1);
+  border: solid 1px rgb(12, 12, 12);
+  color: white;
+}
+

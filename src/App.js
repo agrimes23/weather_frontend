@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Route, Routes, Link } from 'react-router-dom'
 import ShowCity from './components/ShowCity'
+import HomePage from './components/HomePage'
+import Navbar from './components/Navbar'
 
 
 const App = () => {
@@ -14,16 +16,14 @@ const App = () => {
   // returns user list 
   const getUserList = () => {
     axios.get('http://localhost:8000/api/forecast')
-    .then((res) => setUserList(res.data),
-    (err) => console.log(err)
+    .then((res) => setTimeout(() => setUserList(res.data), 2000)
     )
   }
 
 // returns Open Weather API
   function getWeatherAPI () {
     axios.get('http://localhost:8000/api/info')
-    .then((res) => setWeatherApi(res.data),
-    (err) => console.log(err)
+    .then((res) => setTimeout(() => setWeatherApi(res.data), 4000)
     )
   }
 
@@ -61,7 +61,9 @@ const App = () => {
 
   return (
     <>
-      <Routes>
+      <Navbar />
+      <Routes>  
+        <Route path="/" element={<HomePage />}></Route>
         <Route path="/showlocation" element={<ShowCity userList={userList} weatherApi={weatherApi}/>} />
       </Routes>
     </>
