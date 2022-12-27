@@ -14,8 +14,7 @@ const Navbar = (props) => {
 
                 <div>
                     <ul className="nav navbar-nav navbar-right text-white mx-3">
-                        <li><a>My Dashboard</a></li>
-
+                        <Link className=" text-decoration-none" to='/dashboard'><li><a>My Dashboard</a></li></Link>
                     </ul>
                 </div>
             </nav>

@@ -15,6 +15,8 @@ code {
     monospace;
 }
 
+/* ------------------------- Navbar -------------------------  */
+
 nav {
   background-color: rgb(34, 34, 34, 0.95);
 }
@@ -28,6 +30,8 @@ li {
   font-size: 40px;
 }
 
+/* ------------------------ Home Page ------------------------ */
+
 .home-page {
   background: rgba(0, 0, 0, 0.7);
 }
@@ -39,3 +43,9 @@ li {
   color: white;
 }
 
+/* ------------------ City Weather Show Page ------------------ */
+
+.show-city-div {
+  background: rgba(0, 0, 0, 0.8);
+
+}
