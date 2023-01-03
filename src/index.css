@@ -47,7 +47,10 @@ li {
 
 .show-city-div {
   background: rgba(0, 0, 0, 0.8);
+}
 
+.weather-icon {
+  color: white;
 }
 
 /* ------------------------ Dashboard  ------------------------ */

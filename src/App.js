@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Route, Routes, Link } from 'react-router-dom'
-import ShowCity from './components/ShowCity'
+import ShowCity from './components/AddToList/ShowCity'
 import HomePage from './components/HomePage'
 import Navbar from './components/Navbar'
 import Dashboard from './components/Dashboard'
@@ -35,13 +35,13 @@ const App = () => {
   }
 
   // returns Open Weather API
-  // const getCityInfo = (cityName) => {
-  //   console.log("Same here!")
-  //   axios.get('http://localhost:8000/api/info/' + cityName)
-  //   .then((res) => setCitySearch(res.data),
-  //   (err) => console.log(err)
-  //   )
-  // }
+  const getCityInfo = (cityName) => {
+    console.log("Same here!")
+    axios.get('http://localhost:8000/api/info/' + cityName)
+    .then((res) => setCitySearch(res.data),
+    (err) => console.log(err)
+    )
+  }
 
 
   // Trying to get both API calls to work
@@ -102,7 +102,7 @@ const App = () => {
     <>
       <Navbar />
       <Routes>  
-        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/" element={<HomePage getCityInfo={getCityInfo} />}></Route>
         <Route path="/cityweather" element={<ShowCity citySearch={citySearch} getUserList={getUserList} getWeatherAPI={getWeatherAPI} userList={userList} weatherApi={weatherApi}/>} />
         <Route path="/mydashboard" element={<Dashboard />}></Route>
         <Route path="/mylistcity" element={<WeatherNotes />}></Route>
