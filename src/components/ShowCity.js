@@ -24,48 +24,27 @@ const ShowCity = (props) => {
                 {/* more info part */}
                 <div className='d-flex flex-row'>
                     <div className="show-city-div rounded d-flex flex-column w-50 m-5 p-5 text-white">
-                        <div className="d-flex flex-row justify-content-around">
-                            <h5>Max Temp: </h5>
-                            <h5>text</h5>
-                        </div>
-                        <div className="d-flex flex-row justify-content-around">
-                            <h5 className="text-left">Min Temp:</h5>
-                            <h5 className="text-right">text</h5>
-                        </div>
-                        <div className="d-flex flex-row justify-content-around">
-                            <h5>Humidity: </h5>
-                            <h5>text</h5>
-                        </div>
-                        <div className="d-flex flex-row justify-content-around">
-                            <h5>Visibility: </h5>
-                            <h5>text</h5>
-                        </div>
-                        <div className="d-flex flex-row justify-content-around">
-                            <h5>Sunrise: </h5>
-                            <h5>text</h5>
-                        </div>
-                        <div className="d-flex flex-row justify-content-around">
-                            <h5>Sunset: </h5>
-                            <h5>text</h5>
-                        </div>
+                        <WeatherAPI weatherApi={props.weatherApi} />
                     </div>
 
                     {/* add to your list */}
                     <div className='d-flex flex-column justify-content-center m-auto'>
+
+                        {/* this will be a put request to userlist */}
                         <button className="btn btn-info p-3"> + Add to List</button>
                     </div>
                 </div>
 
                 <div className='bg-white'>
 
-                    {props.userList.map((locInfo) => {
+                    {/* {props.userList.map((locInfo) => {
                         return (
                             <>
                                 <h1>{locInfo.city}</h1>
                             </>
                         )
-                    })}
-                    <WeatherAPI weatherApi={props.weatherApi} />
+                    })} */}
+                    
 
                 </div>
             </div>

@@ -14,7 +14,7 @@ const App = () => {
   // do we need two to bring in both API and db?
   const [userList, setUserList] = useState([])
   const [weatherApi, setWeatherApi] = useState({})
-
+  const [citySearch, setCitySearch] = useState("")
 
   // returns user list 
   const getUserList = () => {
@@ -33,6 +33,15 @@ const App = () => {
     (err) => console.log(err)
     )
   }
+
+  // returns Open Weather API
+  // const getCityInfo = (cityName) => {
+  //   console.log("Same here!")
+  //   axios.get('http://localhost:8000/api/info/' + cityName)
+  //   .then((res) => setCitySearch(res.data),
+  //   (err) => console.log(err)
+  //   )
+  // }
 
 
   // Trying to get both API calls to work
@@ -80,6 +89,7 @@ const App = () => {
   }
 
 
+  // will I need to upt getUserList in the brackets?
   useEffect(() => {
     // getAllData()
     getUserList()
@@ -93,7 +103,7 @@ const App = () => {
       <Navbar />
       <Routes>  
         <Route path="/" element={<HomePage />}></Route>
-        <Route path="/cityweather" element={<ShowCity getUserList={getUserList} getWeatherAPI={getWeatherAPI} userList={userList} weatherApi={weatherApi}/>} />
+        <Route path="/cityweather" element={<ShowCity citySearch={citySearch} getUserList={getUserList} getWeatherAPI={getWeatherAPI} userList={userList} weatherApi={weatherApi}/>} />
         <Route path="/mydashboard" element={<Dashboard />}></Route>
         <Route path="/mylistcity" element={<WeatherNotes />}></Route>
       </Routes>

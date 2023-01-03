@@ -1,8 +1,16 @@
 import { useState, useEffect } from 'react'
-
+import { useNavigate } from 'react-router-dom'
 
 // Main home page where user can look up cities
-const HomePage = () => {
+// Needs to make a get request..?
+const HomePage = (props) => {
+
+    const [citySearch, setCitySearch] = useState("")
+
+    const handleSubmit = (e) => {
+        setCitySearch(e.target.value)
+        
+    }
 
     return (
         <>
@@ -11,7 +19,7 @@ const HomePage = () => {
                     <h1 className="text-white">Please Choose a City to get Started</h1>
                     <div className="d-inline-flex mt-5">
                         <input className="rounded search-city p-3" placeholder='Search City' name="city" />
-                        <button className="btn btn-info" >Submit</button>
+                        <input type="submit" className="btn btn-info" value="Get Weather Info"/>
                     </div>
                 </div>
             </div>
