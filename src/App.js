@@ -18,17 +18,42 @@ const App = () => {
 
   // returns user list 
   const getUserList = () => {
+    console.log("I'm running!")
     axios.get('http://localhost:8000/api/forecast')
-    .then((res) => setTimeout(() => setUserList(res.data), 2000)
+    .then((res) => setUserList(res.data),
+    (err) => console.log(err)
     )
   }
 
 // returns Open Weather API
-  function getWeatherAPI () {
+  const getWeatherAPI = () => {
+    console.log("Same here!")
     axios.get('http://localhost:8000/api/info')
-    .then((res) => setTimeout(() => setWeatherApi(res.data), 4000)
+    .then((res) => setWeatherApi(res.data),
+    (err) => console.log(err)
     )
   }
+
+
+  // Trying to get both API calls to work
+  // const getAllData = () => {
+  //   const openWeatherAPI = 'http://localhost:8000/api/info'
+  //   const userSavedData = 'http://localhost:8000/api/forecast'
+
+  //   const getOpenWeatherAPI = axios.get(openWeatherAPI) 
+  //   const getUserSavedData = axios.get(userSavedData)
+
+  //   axios.all([getOpenWeatherAPI, getUserSavedData]).then(
+  //     axios.spread((...allData) =>{
+  //       const allDataWeather = allData[0].data
+  //       const getUserWeatherData = allData[1].data
+
+  //       console.log(allDataWeather)
+  //       console.log(getUserWeatherData)
+  //     })
+  //   )
+  // }
+
 
   const handleCreate = (addNote) => {
     axios.post('http://localhost:8000/api/forecast', addNote)
@@ -56,6 +81,7 @@ const App = () => {
 
 
   useEffect(() => {
+    // getAllData()
     getUserList()
     getWeatherAPI()
   }, [])
@@ -67,7 +93,7 @@ const App = () => {
       <Navbar />
       <Routes>  
         <Route path="/" element={<HomePage />}></Route>
-        <Route path="/cityweather" element={<ShowCity userList={userList} weatherApi={weatherApi}/>} />
+        <Route path="/cityweather" element={<ShowCity getUserList={getUserList} getWeatherAPI={getWeatherAPI} userList={userList} weatherApi={weatherApi}/>} />
         <Route path="/mydashboard" element={<Dashboard />}></Route>
         <Route path="/mylistcity" element={<WeatherNotes />}></Route>
       </Routes>
