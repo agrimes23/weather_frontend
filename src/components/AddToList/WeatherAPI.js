@@ -4,20 +4,6 @@ import { useState, useEffect } from 'react'
 // Main home page where user can look up cities
 const WeatherAPI = (props) => {
 
-    // const [sunsetTime, setSunsetTime] = useState("")
-
-    // const getTime = () => {
-    //     const date = new Date(props.weatherApi.sys.sunset * 1000)
-    //     const hours = date.getHours()
-    //     const minutes = date.getMinutes()
-    //     const seconds = date.getSeconds()
-
-    //     setSunsetTime(`${hours}:${minutes}:`)
-    // }
-
-    // useEffect(() => {
-    //     getTime()
-    // })
     try {
         
         

@@ -5,21 +5,18 @@ import { useNavigate, Link } from 'react-router-dom'
 // Needs to make a get request..?
 const HomePage = (props) => {
 
-    const [city, setCity] = useState("")
-
     const [citySearch, setCitySearch] = useState("")
     const navigate = useNavigate()
 
     const handleChange = (e) => {
-        setCitySearch({...citySearch, [e.target.name]: e.target.value})
+        setCitySearch(e.target.value)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setCitySearch({...citySearch, ["notes"]: ""})
         console.log(citySearch)
-        // setCitySearch(e.target.value)
-        // props.getCityInfo(citySearch)
+        props.getCityInfo(citySearch)
+        navigate('/cityweather')
     }
 
     return (
@@ -30,12 +27,8 @@ const HomePage = (props) => {
                         <h1 className="text-white">Please Choose a City to get Started</h1>
                         <div className="row mt-5">
                                 <div className="row w-75">
-                                    <label className="text-white" htmlFor="search city weather">Search for Weather in a specific city: </label>
-                                    <input type="text" className="rounded search-city p-3" placeholder='Search City' name="city" onChange={handleChange} />
-                                </div>
-                                <div className="row w-75">
-                                    <label className="text-white" htmlFor="input state">Input State: </label>
-                                    <input type="text" className="rounded search-city p-3" placeholder='State' name="state" onChange={handleChange} />
+                                    <label className="text-white" htmlFor="search city weather">City: </label>
+                                    <input type="text" className="rounded search-city p-3" placeholder='Search City' name="city" onChange={handleChange}/>
                                 </div>
                                 <input type="submit" className="row mt-4 btn btn-info w-25" value="Get Weather Info"/>
                         </div>
