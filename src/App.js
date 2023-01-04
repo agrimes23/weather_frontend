@@ -4,8 +4,8 @@ import { Route, Routes, Link } from 'react-router-dom'
 import ShowCity from './components/AddToList/ShowCity'
 import HomePage from './components/HomePage'
 import Navbar from './components/Navbar'
-import Dashboard from './components/Dashboard'
-import WeatherNotes from './components/WeatherNotes'
+import Dashboard from './components/DashboardFiles/Dashboard'
+import WeatherNotes from './components/DashboardFiles/WeatherNotes'
 
 
 
@@ -82,7 +82,7 @@ const App = () => {
       <Navbar />
       <Routes>  
         <Route path="/" element={<HomePage getCityInfo={getCityInfo} />}></Route>
-        <Route path="/cityweather" element={<ShowCity handleCreate={handleCreate} userList={userList} weatherApi={weatherApi}/>} />
+        <Route path="/cityweather" element={<ShowCity handleCreate={handleCreate} weatherApi={weatherApi}/>} />
         <Route path="/mydashboard" element={<Dashboard />}></Route>
         <Route path="/mylistcity" element={<WeatherNotes />}></Route>
       </Routes>
