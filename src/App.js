@@ -4,8 +4,8 @@ import { Route, Routes, Link } from 'react-router-dom'
 import ShowCity from './components/AddToList/ShowCity'
 import HomePage from './components/HomePage'
 import Navbar from './components/Navbar'
-import Dashboard from './components/Dashboard'
-import WeatherNotes from './components/WeatherNotes'
+import Dashboard from './components/DashboardFiles/Dashboard'
+import WeatherNotes from './components/DashboardFiles/WeatherNotes'
 
 
 
@@ -13,8 +13,8 @@ const App = () => {
 
   // do we need two to bring in both API and db?
   const [userList, setUserList] = useState([])
-  const [weatherApi, setWeatherApi] = useState({})
-  const [citySearch, setCitySearch] = useState("")
+  const [weatherApi, setWeatherApi] = useState([{}])
+  // const [addCity, setAddCity] = useState([{name: "1", state: "2", notes: "3"}])
 
   // returns user list 
   const getUserList = () => {
@@ -36,14 +36,16 @@ const App = () => {
 
   // returns Open Weather API
   const getCityInfo = (cityName) => {
+    console.log("Same here!")
     axios.get('http://localhost:8000/api/info/' + cityName)
     .then((res) => setWeatherApi(res.data),
     (err) => console.log(err)
     )
   }
 
-  const handleCreate = (addInfo) => {
-    axios.post('http://localhost:8000/api/forecast', addInfo)
+  const handleCreate = (addCity) => {
+    console.log(addCity)
+    axios.post('http://localhost:8000/api/forecast', addCity)
     .then((res) => {
       console.log(res.data)
       getUserList()
@@ -80,7 +82,7 @@ const App = () => {
       <Navbar />
       <Routes>  
         <Route path="/" element={<HomePage getCityInfo={getCityInfo} />}></Route>
-        <Route path="/cityweather" element={<ShowCity handleCreate={handleCreate} userList={userList} weatherApi={weatherApi}/>} />
+        <Route path="/cityweather" element={<ShowCity handleCreate={handleCreate} weatherApi={weatherApi}/>} />
         <Route path="/mydashboard" element={<Dashboard />}></Route>
         <Route path="/mylistcity" element={<WeatherNotes />}></Route>
       </Routes>

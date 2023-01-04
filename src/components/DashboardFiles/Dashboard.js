@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import video2 from '../assets/weather-vid-2.mp4'
+import video2 from '../../assets/weather-vid-2.mp4'
 
 
 // This will be for adding notes to cities in the list

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 
 // This will be for adding notes to cities in the list
-const Add = () => {
+const UpdateNotes = () => {
 
     return (
         <>
@@ -11,4 +11,4 @@ const Add = () => {
     )
 }
 
-export default Add;
+export default UpdateNotes;
