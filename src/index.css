@@ -49,9 +49,13 @@ li {
   background: rgba(0, 0, 0, 0.8);
 }
 
-.weather-icon {
-  color: white;
+.city-text {
+  font-size: 3em;
 }
+
+/* .weather-icon {
+
+} */
 
 /* ------------------------ Dashboard  ------------------------ */
 
