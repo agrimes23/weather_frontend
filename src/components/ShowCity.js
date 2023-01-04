@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import WeatherAPI from './WeatherAPI'
+import video2 from '../assets/weather-vid-2.mp4';
 
 
 // This will be for showing more info on the city's weather (not yet added to user list)
@@ -11,12 +12,13 @@ const ShowCity = (props) => {
 
     // console.log()
     return (
-        <>
-            <div className="container-fluid w-100 show-city-page">
+        <div className='back'>
+            <video src={video2} autoPlay loop muted />
+            <div className="container-fluid w-100 show-city-page entry">
                 <div className="show-city-div rounded d-flex flex-column align-items-center m-5 p-5">
                 {/* top part */}
                     <div className="d-flex justify-content-around w-100">
-                        <h2 className="text-white">location name</h2>
+                        <h2 className="show-title">CITY NAME</h2>
                         <h2 className="text-white">icon</h2>
                     </div>
                 </div>
@@ -48,7 +50,7 @@ const ShowCity = (props) => {
 
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

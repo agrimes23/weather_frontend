@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("https://wallpapercave.com/wp/EVszeFH.jpg");
+  
   width: 100vw;
   height: 100vh;
 }
@@ -21,6 +21,10 @@ nav {
   background-color: rgb(34, 34, 34, 0.95);
 }
 
+.logo {
+  color: yellow;
+}
+
 li {
   text-decoration: none;
   cursor: pointer;
@@ -28,6 +32,12 @@ li {
 
 .logo {
   font-size: 40px;
+}
+
+.dash {
+  color: aqua;
+  font-family: 'Pacifico', cursive;
+  letter-spacing: 1.5px;
 }
 
 /* ------------------------ Home Page ------------------------ */
@@ -43,13 +53,46 @@ li {
   color: white;
 }
 
+.entry {
+  position: absolute;
+  top: 20%;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.back {
+  width: 100%;
+  height: 100vh;
+}
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.intro {
+  color: aqua;
+  font-weight: bold;
+  font-family: 'Pacifico', cursive;
+}
 /* ------------------ City Weather Show Page ------------------ */
 
 .show-city-div {
   background: rgba(0, 0, 0, 0.8);
 
 }
+.show-title {
+  color: yellow;
+  font-weight: bold;
+  font-family: 'Alfa Slab One', cursive;
+}
 
 /* ------------------------ Dashboard  ------------------------ */
 
+.intro2 {
+  color: yellow;
+  font-weight: bold;
+  font-family: 'Pacifico', cursive;
+}
 
