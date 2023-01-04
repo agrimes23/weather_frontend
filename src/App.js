@@ -13,8 +13,8 @@ const App = () => {
 
   // do we need two to bring in both API and db?
   const [userList, setUserList] = useState([])
-  const [weatherApi, setWeatherApi] = useState({})
-  const [citySearch, setCitySearch] = useState("")
+  const [weatherApi, setWeatherApi] = useState([{}])
+  // const [addCity, setAddCity] = useState([{name: "1", state: "2", notes: "3"}])
 
   // returns user list 
   const getUserList = () => {
@@ -36,14 +36,16 @@ const App = () => {
 
   // returns Open Weather API
   const getCityInfo = (cityName) => {
+    console.log("Same here!")
     axios.get('http://localhost:8000/api/info/' + cityName)
     .then((res) => setWeatherApi(res.data),
     (err) => console.log(err)
     )
   }
 
-  const handleCreate = (addInfo) => {
-    axios.post('http://localhost:8000/api/forecast', addInfo)
+  const handleCreate = (addCity) => {
+    console.log(addCity)
+    axios.post('http://localhost:8000/api/forecast', addCity)
     .then((res) => {
       console.log(res.data)
       getUserList()

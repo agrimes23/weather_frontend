@@ -8,27 +8,11 @@ const ShowCity = (props) => {
     // // I think async is key for both apis to run at the same time. the axios.get on app.js runs just fine. 
     // // it's only causing errors when we try to show both on the same page. async will probably fix that but idk how to use it atm.
 
-    // const [city, setCity] = useState("")
-
-    // const [citySearch, setCitySearch] = useState("")
-    // const navigate = useNavigate()
-
-    // const handleChange = (e) => {
-    //     setCitySearch({...citySearch, [e.target.name]: e.target.value})
-    // }
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     setCitySearch({...citySearch, ["notes"]: ""})
-    //     console.log(citySearch)
-    //     props.handleCreate(citySearch)
-    // }
-
     return (
         <>
             <div className="container-fluid w-100 show-city-page">
                 {/* shows weather information for specific city */}
-                <WeatherAPI weatherApi={props.weatherApi} />                   
+                    <WeatherAPI handleCreate={props.handleCreate} weatherApi={props.weatherApi} />
             </div>
         </>
     )
