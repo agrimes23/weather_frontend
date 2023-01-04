@@ -17,7 +17,7 @@ const Dashboard = () => {
                     {/* card */}
                     <div className="card bg-dark text-white d-flex flex-row my-3 p-5">
                         <div className="col-md-6">
-                            <h1 className='row'>Chicago</h1>
+                            <h1 className='rowe'>Chicago</h1>
                         </div>
                         <div className="col-md-6 text-right">
                             <h5>icon</h5>
@@ -27,7 +27,7 @@ const Dashboard = () => {
                     </div>
                     <div className="card bg-dark text-white d-flex flex-row my-3 p-5">
                         <div className="col-md-6">
-                            <h1 className='row'>Chicago</h1>
+                            <h1 className='rowe'>Chicago</h1>
                         </div>
                         <div className="col-md-6">
                             <h5>icon</h5>
@@ -37,7 +37,7 @@ const Dashboard = () => {
                     </div>
                     <div className="card bg-dark text-white d-flex flex-row my-3 p-5">
                         <div className="col-md-6">
-                            <h1 className='row'>Chicago</h1>
+                            <h1 className='rowe'>Chicago</h1>
                         </div>
                         <div className="col-md-6">
                             <h5>icon</h5>
