@@ -34,7 +34,10 @@ li {
   color: aqua;
   font-family: 'Pacifico', cursive;
 }
-
+.two {
+  font-size: 3em;
+  font-weight: bolder;
+}
 /* ------------------------ Home Page ------------------------ */
 
 .home-page {
@@ -83,3 +86,7 @@ video {
 /* ------------------------ Dashboard  ------------------------ */
 
 
+.row {
+  font-family: 'Alfa Slab One', cursive;
+  color: aqua;
+}
