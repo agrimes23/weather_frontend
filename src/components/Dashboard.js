@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
+import video2 from '../assets/weather-vid-2.mp4'
 
 
 // This will be for adding notes to cities in the list
 const Dashboard = () => {
 
     return (
-        <>
-            <div className="container-fluid w-100">
+        <div className='background'>
+            <video src={video2} autoPlay loop muted />
+            <div className="container-fluid w-100 content">
                 <h1 className="text-center mt-5">Your Liked Cities</h1>
                 
                 {/* card container */}
@@ -45,7 +47,7 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
