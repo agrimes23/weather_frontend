@@ -3,17 +3,44 @@ import { useState, useEffect } from 'react'
 
 // Main home page where user can look up cities
 const WeatherAPI = (props) => {
+    let emptyCity = { city: '', state: '', notes: '' }
+    const [addCity, setAddCity] = useState(emptyCity)
+    const [sunriseTime, setSunriseTime] = useState("")
+    const [sunsetTime, setSunsetTime] = useState("")
 
-    const [addCity, setAddCity] = useState({})
+    const getRiseTime = () => {
+        const date = new Date((props.weatherApi.sys ? props.weatherApi.sys.sunrise : null) * 1000)
+
+        const hour = date.getHours()
+        const min = date.getMinutes()
+        const sec = date.getSeconds()
+
+        setSunriseTime(`${hour}:${min}:${sec}`)
+    }
+
+    const getSetTime = () => {
+        const date = new Date((props.weatherApi.sys ? props.weatherApi.sys.sunset : null) * 1000)
+
+        const hour = date.getHours()
+        const min = date.getMinutes()
+        const sec = date.getSeconds()
+
+        setSunsetTime(`${hour}:${min}:${sec}`)
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setAddCity({...addCity, ["city"]: (props.weatherApi ? props.weatherApi.name : null), ["state"]: "", ["notes"]: ""})
-
+        console.log(addCity)
         props.handleCreate(addCity)
     }
+
+    useEffect (() => {
+        setAddCity({...addCity, city: (props.weatherApi ? props.weatherApi.name : null), state: "Write the state here", notes: "Write any notes here"})
+        getRiseTime()
+        getSetTime()
+    }, [])
     
-    console.log(addCity)
+    
         return (
             <>
                 <form onSubmit={handleSubmit}>
@@ -40,14 +67,16 @@ const WeatherAPI = (props) => {
                             </div>
                             <div className="d-flex flex-row justify-content-around">
                                 <h5>Visibility: </h5>
-                                <h5>{props.weatherApi.main ? props.weatherApi.visibility : null}</h5>
+                                <h5>{props.weatherApi.main ? props.weatherApi.visibility : null} km</h5>
                             </div>
                             <div className="d-flex flex-row justify-content-around">
-
+                            <h5>Sunrise: </h5>
+                                <h5>{sunriseTime}</h5>
+                            
                             </div>
                             <div className="d-flex flex-row justify-content-around">
                                 <h5>Sunset: </h5>
-                                <h5>{props.weatherApi.main ? props.weatherApi.sys.sunset : null}</h5>
+                                <h5>{sunsetTime}</h5>
                             </div>
                         </div>
                         <div className='d-flex flex-column justify-content-center m-auto'>                            
