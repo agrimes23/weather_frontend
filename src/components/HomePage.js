@@ -15,9 +15,13 @@ const HomePage = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(citySearch)
-        props.getCityInfo(citySearch)
-        navigate('/cityweather')
+        if (citySearch === "") {
+            alert("Please enter a city!")
+        } else {
+            props.getCityInfo(citySearch)
+            navigate('/cityweather')
+        }
+        
     }
 
     return (
@@ -27,12 +31,14 @@ const HomePage = (props) => {
                 <div className="container-fluid d-flex flex-column align-items-center content" >
                     <div className="home-page rounded text-center p-5 m-5">
                         <h1 className="trip">Find A City</h1>
-                        <div className="row mt-5">
-                                <div className="row w-75">
-                                    <label htmlFor="search city weather">City: </label>
+                        <div className="column d-flex space-between mt-5">
+                                <div className="row ">
+                                    <label htmlFor="enter a city name"></label>
                                     <input type="text" className="rounded search-city p-3" placeholder='Search City' name="city" onChange={handleChange}/>
                                 </div>
-                                <input type="submit" className="row mt-4 btn btn-info w-25" value="Get Weather Info"/>
+                                <div className="d-flex align-items-center">
+                                    <input type="submit" className="row mt-4 py-4 px-3 btn btn-info" value="Get Weather Info"/>
+                                </div>
                         </div>
                     </div>
                 </div>
