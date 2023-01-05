@@ -6,7 +6,7 @@ import HomePage from './components/HomePage'
 import Navbar from './components/Navbar'
 import Dashboard from './components/DashboardFiles/Dashboard'
 import WeatherNotes from './components/DashboardFiles/WeatherNotes'
-
+import EditNotes from './components/DashboardFiles/EditNotes'
 
 
 const App = () => {
@@ -15,6 +15,7 @@ const App = () => {
   const [userList, setUserList] = useState([])
   const [weatherApi, setWeatherApi] = useState([{}])
   // const [addCity, setAddCity] = useState([{name: "1", state: "2", notes: "3"}])
+  const [editID, setEditID] = useState({})
 
   // returns user list 
   const getUserList = () => {
@@ -82,8 +83,9 @@ const App = () => {
       <Routes>  
         <Route path="/" element={<HomePage getCityInfo={getCityInfo} />}></Route>
         <Route path="/cityweather" element={<ShowCity handleCreate={handleCreate} weatherApi={weatherApi}/>} />
-        <Route path="/mydashboard" element={<Dashboard />}></Route>
-        <Route path="/mylistcity" element={<WeatherNotes />}></Route>
+        <Route path="/mydashboard" element={<Dashboard setEditID={setEditID} setWeatherApi={setWeatherApi} weatherApi={weatherApi} getCityInfo={getCityInfo} userList={userList} handleDelete={handleDelete}/>}></Route>
+        <Route path="/mylistcity" element={<WeatherNotes editID={editID} />}></Route>
+        <Route path="/mylistcity/edit" element={<EditNotes setEditID={setEditID} handleUpdate={handleUpdate} editID={editID} />}></Route>
       </Routes>
     </>
   )

@@ -7,6 +7,8 @@ const WeatherAPI = (props) => {
     const [addCity, setAddCity] = useState(emptyCity)
     const [sunriseTime, setSunriseTime] = useState("")
     const [sunsetTime, setSunsetTime] = useState("")
+    const [cityName, setCityName] = useState("")
+    // const cityName = ""
 
     const getRiseTime = () => {
         const date = new Date((props.weatherApi.sys ? props.weatherApi.sys.sunrise : null) * 1000)
@@ -18,7 +20,7 @@ const WeatherAPI = (props) => {
         setSunriseTime(`${hour}:${min}:${sec}`)
     }
 
-    const getSetTime = () => {
+    const getSetTime = async () => {
         const date = new Date((props.weatherApi.sys ? props.weatherApi.sys.sunset : null) * 1000)
 
         const hour = date.getHours()
@@ -35,10 +37,12 @@ const WeatherAPI = (props) => {
     }
 
     useEffect (() => {
-        setAddCity({...addCity, city: (props.weatherApi ? props.weatherApi.name : null), state: "Write the state here", notes: "Write any notes here"})
+
+        setAddCity({...addCity, city: (props.weatherApi.name ? props.weatherApi.name : null), state: "Write the state here", notes: "Write any notes here"})
         getRiseTime()
         getSetTime()
-    }, [])
+
+    }, [props.weatherApi])
     
     
         return (

@@ -7,7 +7,7 @@ const Navbar = (props) => {
 
     return (
         <>
-            <nav className="navbar navbar-dark sticky-top p-3">
+            <nav className="navbar navbar-dark sticky-top p-3 navbar">
                 <Link className=" text-decoration-none" to='/' >
                     <h3 className="navbar-brand mx-3 "><i className="fa-solid fa-cloud-sun-rain logo "></i></h3>
                 </Link>
