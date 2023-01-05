@@ -12,11 +12,7 @@ const ShowCity = (props) => {
     return (
         <div className='background'>
             <video src={video3} autoPlay loop muted />
-<<<<<<< HEAD
-            <div className="container-fluid w-100 show-city-page content">
-=======
             <div className="container-fluid content w-100 show-city-page">
->>>>>>> c8df6a4b576c3a491bb69bf11010f5f1d54d6d4d
                 {/* shows weather information for specific city */}
                     <WeatherAPI handleCreate={props.handleCreate} weatherApi={props.weatherApi} />
             </div>
