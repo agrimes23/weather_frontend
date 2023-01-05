@@ -13,7 +13,7 @@ const Dashboard = (props) => {
     const navigate = useNavigate()
 
     const getAxios = (city) => {
-        axios.get('https://weather-app-eevee.herokuapp.com/api/info/' + city)
+        axios.get('weather-app-eevee.herokuapp.com/api/info/' + city)
         .then((res) => {weatherData.push(res.data)},
         (err) => console.log(err))
 
