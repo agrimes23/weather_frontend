@@ -11,7 +11,6 @@ const WeatherNotes = (props) => {
         navigate('/mylistcity/edit')
     }
 
-    console.log(props.editID)
     return (
         <>
             <div>

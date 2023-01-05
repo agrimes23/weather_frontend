@@ -28,17 +28,6 @@ const EditNotes = (props) => {
             <textarea rows="5" cols="30" type="text" name="notes" value={notes.notes} onChange={handleChange}/>
             <input type="submit" className="btn btn-info"/>
         </form>
-          {/* <form onSubmit={handleSubmit}>
-                <div className="form-group row w-50 mt-3">
-                    <label htmlFor="task-name">Todo Task: </label>
-                    <input type="text" name="item" value={task.item} onChange={handleChange}/>
-                </div>
-                <div className="form-group row w-50 mt-3">
-                    <label htmlFor="description">Description: </label>
-                    <input type="text" name="desc" value={task.desc} onChange={handleChange}/>
-                </div>
-                <input type="submit" />
-            </form>   */}
         </>
     )
 }
