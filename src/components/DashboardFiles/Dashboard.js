@@ -10,6 +10,7 @@ const Dashboard = (props) => {
     const [cityInfoObj, setCityInfoObj] = useState([{}])
     const [cityList, setCityList] = useState([])
     const weatherData = []
+    const navigate = useNavigate()
 
     const getAxios = (city) => {
         axios.get('http://localhost:8000/api/info/' + city)
@@ -33,8 +34,11 @@ const Dashboard = (props) => {
         console.log("well hello")
     }
 
-    const handleRedirect = () => {
+    const handleSendID = (cityWeather) => {
         // WIP
+        console.log(cityWeather)
+        props.setEditID(cityWeather)
+        navigate("/mylistcity")
     }
 
     useEffect (() => {
@@ -44,7 +48,7 @@ const Dashboard = (props) => {
         // saveToArray()
         // saveToObj()
 
-    }, [])
+    }, [props.userList])
 
  
     return (
@@ -71,7 +75,10 @@ const Dashboard = (props) => {
                                 <img className="weather-icon" src={`http://openweathermap.org/img/wn/${props.weatherApi.weather ? props.weatherApi.weather[0].icon : null}@2x.png`} />
                                 <h5>{cityWeather.temp} °F</h5>
                                 <button className="btn btn-danger" onClick={props.handleDelete} value={cityWeather.id}> - Remove</button>
-                                <button className="btn btn-info" onClick={handleRedirect} value={cityWeather.id}> Edit </button>
+                                {/* <Link to="/mylistcity" relative="path"> */}
+                                    <button className="btn btn-warning" onClick={() => {handleSendID(cityWeather)}}>View Details</button>
+                                    {/* </Link> */}
+                                
                             </div>
                             </div>
                         )
