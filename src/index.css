@@ -5,10 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-<<<<<<< HEAD
   
-=======
->>>>>>> 47d5486ac7619b0eca7b5bd02130855db25ca651
   width: 100vw;
   height: 100vh;
 }
@@ -45,17 +42,14 @@ li {
 .dash {
   color: aqua;
   font-family: 'Pacifico', cursive;
-<<<<<<< HEAD
   letter-spacing: 1.5px;
 }
 
-=======
-}
+
 .two {
   font-size: 3em;
   font-weight: bolder;
 }
->>>>>>> 47d5486ac7619b0eca7b5bd02130855db25ca651
 /* ------------------------ Home Page ------------------------ */
 
 .home-page {

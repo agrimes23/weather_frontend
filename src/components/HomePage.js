@@ -1,11 +1,6 @@
 import { useState, useEffect } from 'react'
-<<<<<<< HEAD
-import { useNavigate } from 'react-router-dom'
-import videoBackground from '../assets/weather-vid-1.mp4';
-=======
 import { useNavigate, Link } from 'react-router-dom'
 import videoBackground from '../assets/weather-vid-1.mp4'
->>>>>>> 47d5486ac7619b0eca7b5bd02130855db25ca651
 
 // Main home page where user can look up cities
 // Needs to make a get request..?
@@ -30,19 +25,6 @@ const HomePage = (props) => {
     }
 
     return (
-<<<<<<< HEAD
-        <div className='back'>
-            <video src={videoBackground} autoPlay loop muted />
-            <div className="container-fluid d-flex flex-column align-items-center entry">
-                <div className="home-page rounded text-center p-5 m-5">
-                    <h1 className="intro">FIND A CITY</h1>
-                    <div className="d-inline-flex mt-5">
-                        <input className="rounded search-city p-3" placeholder='Search City' name="city" />
-                        <input type="submit" className="btn btn-info" value="Get Weather"/>
-                    </div>
-                </div>
-            </div>
-=======
         <div className='background'>
             <video src={videoBackground} autoPlay loop muted />
             <form onSubmit={handleSubmit}>
@@ -61,7 +43,6 @@ const HomePage = (props) => {
                     </div>
                 </div>
             </form>
->>>>>>> 47d5486ac7619b0eca7b5bd02130855db25ca651
         </div>
     )
 }
