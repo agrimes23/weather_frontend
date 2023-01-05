@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Route, Routes, Link } from 'react-router-dom'
-import ShowCity from './components/ShowCity'
+import ShowCity from './components/AddToList/ShowCity'
 import HomePage from './components/HomePage'
 import Navbar from './components/Navbar'
-import Dashboard from './components/Dashboard'
-import WeatherNotes from './components/WeatherNotes'
+import Dashboard from './components/DashboardFiles/Dashboard'
+import WeatherNotes from './components/DashboardFiles/WeatherNotes'
 
 
 
@@ -13,25 +13,38 @@ const App = () => {
 
   // do we need two to bring in both API and db?
   const [userList, setUserList] = useState([])
-  const [weatherApi, setWeatherApi] = useState({})
-
+  const [weatherApi, setWeatherApi] = useState([{}])
+  // const [addCity, setAddCity] = useState([{name: "1", state: "2", notes: "3"}])
 
   // returns user list 
   const getUserList = () => {
+    console.log("I'm running!")
     axios.get('http://localhost:8000/api/forecast')
-    .then((res) => setTimeout(() => setUserList(res.data), 2000)
+    .then((res) => setUserList(res.data),
+    (err) => console.log(err)
     )
   }
 
 // returns Open Weather API
-  function getWeatherAPI () {
-    axios.get('http://localhost:8000/api/info')
-    .then((res) => setTimeout(() => setWeatherApi(res.data), 4000)
+  // const getWeatherAPI = () => {
+  //   console.log("Same here!")
+  //   axios.get('http://localhost:8000/api/info')
+  //   .then((res) => setWeatherApi(res.data),
+  //   (err) => console.log(err)
+  //   )
+  // }
+
+  // returns Open Weather API
+  const getCityInfo = (cityName) => {
+    console.log("Same here!")
+    axios.get('http://localhost:8000/api/info/' + cityName)
+    .then((res) => setWeatherApi(res.data),
+    (err) => console.log(err)
     )
   }
 
-  const handleCreate = (addNote) => {
-    axios.post('http://localhost:8000/api/forecast', addNote)
+  const handleCreate = (addCity) => {
+    axios.post('http://localhost:8000/api/forecast', addCity)
     .then((res) => {
       console.log(res.data)
       getUserList()
@@ -55,9 +68,10 @@ const App = () => {
   }
 
 
+  // will I need to upt getUserList in the brackets?
   useEffect(() => {
     getUserList()
-    getWeatherAPI()
+
   }, [])
 
 // console.log(weatherApi)
@@ -66,8 +80,8 @@ const App = () => {
     <>
       <Navbar />
       <Routes>  
-        <Route path="/" element={<HomePage />}></Route>
-        <Route path="/cityweather" element={<ShowCity userList={userList} weatherApi={weatherApi}/>} />
+        <Route path="/" element={<HomePage getCityInfo={getCityInfo} />}></Route>
+        <Route path="/cityweather" element={<ShowCity handleCreate={handleCreate} weatherApi={weatherApi}/>} />
         <Route path="/mydashboard" element={<Dashboard />}></Route>
         <Route path="/mylistcity" element={<WeatherNotes />}></Route>
       </Routes>
