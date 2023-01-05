@@ -48,8 +48,8 @@ const Dashboard = (props) => {
 
  
     return (
-        <div className='background'>
-            <video src={video2} autoPlay loop muted />
+        <div className=''>
+            <video className="background" src={video2} autoPlay loop muted />
             <div className="container-fluid w-100 content">
                 <h1 className="text-center mt-5 dash two">My Map</h1>
                 
