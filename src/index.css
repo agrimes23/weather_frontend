@@ -20,6 +20,9 @@ nav {
   background-color: rgb(34, 34, 34, 0.95);
   position: sticky;
 }
+.navbar {
+  position: fixed;
+}
 
 li {
   text-decoration: none;
