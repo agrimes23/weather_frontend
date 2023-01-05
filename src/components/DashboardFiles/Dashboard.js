@@ -1,10 +1,52 @@
 import { useState, useEffect } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
 import video2 from '../../assets/weather-vid-2.mp4'
+import axios from 'axios'
+
 
 
 // This will be for adding notes to cities in the list
-const Dashboard = () => {
+const Dashboard = (props) => {
+    const [cityInfoObj, setCityInfoObj] = useState([{}])
+    const [cityList, setCityList] = useState([])
+    const weatherData = []
 
+    const getAxios = (city) => {
+        axios.get('http://localhost:8000/api/info/' + city)
+        .then((res) => {weatherData.push(res.data)},
+        (err) => console.log(err))
+
+        console.log("asewrew" + weatherData)
+    }
+
+
+    const saveToArray = () => {
+
+        props.userList.map((city) => {          
+            setTimeout(() => {getAxios(city.city)}, 1000)
+           
+        })
+        console.log(weatherData)
+        // cityList.map((weather) => {
+        //     console.log("oh hi ")
+        // })
+        console.log("well hello")
+    }
+
+    const handleRedirect = () => {
+        // WIP
+    }
+
+    useEffect (() => {
+        // setCityList([])
+        saveToArray()
+        // saveToObj()
+        // saveToArray()
+        // saveToObj()
+
+    }, [])
+
+ 
     return (
         <div className='background'>
             <video src={video2} autoPlay loop muted />
@@ -15,36 +57,27 @@ const Dashboard = () => {
                 <div className="container-fluid w-75 p-5">
 
                     {/* card */}
-                    <div className="card bg-dark text-white d-flex flex-row my-3 p-5">
-                        <div className="col-md-6">
-                            <h1 className='rowe'>Chicago</h1>
-                        </div>
-                        <div className="col-md-6 text-right">
-                            <h5>icon</h5>
-                            <h5>degrees</h5>
-                        </div>
 
-                    </div>
-                    <div className="card bg-dark text-white d-flex flex-row my-3 p-5">
-                        <div className="col-md-6">
-                            <h1 className='rowe'>Chicago</h1>
-                        </div>
-                        <div className="col-md-6">
-                            <h5>icon</h5>
-                            <h5>degrees</h5>
-                        </div>
+                    
+                    {props.userList.map((cityWeather) => {
 
-                    </div>
-                    <div className="card bg-dark text-white d-flex flex-row my-3 p-5">
-                        <div className="col-md-6">
-                            <h1 className='rowe'>Chicago</h1>
-                        </div>
-                        <div className="col-md-6">
-                            <h5>icon</h5>
-                            <h5>degrees</h5>
-                        </div>
 
-                    </div>
+                        return (
+                            <div className="card bg-dark text-white d-flex flex-row my-3 p-5">
+                            <div className="col-md-6">
+                                <h1 className='rowe'>{cityWeather.city}</h1>
+                            </div>
+                            <div className="col-md-6 text-right">
+                                <img className="weather-icon" src={`http://openweathermap.org/img/wn/${props.weatherApi.weather ? props.weatherApi.weather[0].icon : null}@2x.png`} />
+                                <h5>{cityWeather.temp} °F</h5>
+                                <button className="btn btn-danger" onClick={props.handleDelete} value={cityWeather.id}> - Remove</button>
+                                <button className="btn btn-info" onClick={handleRedirect} value={cityWeather.id}> Edit </button>
+                            </div>
+                            </div>
+                        )
+
+                    })}
+
                 </div>
             </div>
         </div>

@@ -82,7 +82,7 @@ const App = () => {
       <Routes>  
         <Route path="/" element={<HomePage getCityInfo={getCityInfo} />}></Route>
         <Route path="/cityweather" element={<ShowCity handleCreate={handleCreate} weatherApi={weatherApi}/>} />
-        <Route path="/mydashboard" element={<Dashboard />}></Route>
+        <Route path="/mydashboard" element={<Dashboard setWeatherApi={setWeatherApi} weatherApi={weatherApi} getCityInfo={getCityInfo} userList={userList} handleDelete={handleDelete}/>}></Route>
         <Route path="/mylistcity" element={<WeatherNotes />}></Route>
       </Routes>
     </>
