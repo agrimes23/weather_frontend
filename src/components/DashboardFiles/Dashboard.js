@@ -62,6 +62,7 @@ const Dashboard = (props) => {
 
                     {/* card */}
 
+
                     
                     {props.userList.map((cityWeather) => {
 
@@ -84,6 +85,7 @@ const Dashboard = (props) => {
                         )
 
                     })}
+
 
                 </div>
             </div>
