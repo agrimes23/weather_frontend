@@ -10,10 +10,6 @@ const WeatherNotes = (props) => {
         navigate('/mylistcity/edit')
     }
 
-    useEffect(()=> {
-
-    }, [props.editId])
-
     console.log(props.editID)
     return (
         <>
