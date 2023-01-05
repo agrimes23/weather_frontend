@@ -44,7 +44,6 @@ const App = () => {
   }
 
   const handleCreate = (addCity) => {
-    console.log(addCity)
     axios.post('http://localhost:8000/api/forecast', addCity)
     .then((res) => {
       console.log(res.data)
@@ -72,7 +71,7 @@ const App = () => {
   // will I need to upt getUserList in the brackets?
   useEffect(() => {
     getUserList()
-    // getWeatherAPI()
+
   }, [])
 
 // console.log(weatherApi)
