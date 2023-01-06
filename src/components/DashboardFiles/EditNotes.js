@@ -24,7 +24,7 @@ const EditNotes = (props) => {
         <video className="background" src={video2} autoPlay loop muted />
         <form className='edit-box' onSubmit={handleSubmit}>
             <h1>{props.editID.city}</h1>
-            <h2>{props.editID.state}</h2>
+            <input type="text" name="state" value={notes.state} onChange={handleChange}/>
             <textarea rows="5" cols="30" type="text" name="notes" value={notes.notes} onChange={handleChange}/>
             <input type="submit" className="btn btn-info"/>
         </form>

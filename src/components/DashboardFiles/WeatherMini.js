@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
 
@@ -9,42 +9,42 @@ const WeatherMini = (props) => {
     const [temp, setTemp] = useState()
     const [wData, setWData] = useState({})
     const [isLoading, setIsLoading] = useState(true)
+
     const weatherData = []
     const navigate = useNavigate()
 
-    const getAxios = async (city) => {
+    const getAxios = useCallback( async (city) => {
         await axios.get('http://localhost:8000/api/info/' + city.city)
         .then((res) => {
             setWData(res.data)
-            setTemp(wData.main.temp)
-            setIcon(wData.weather[0].icon)
+            setTemp(res.data.main.temp)
+            setIcon(res.data.weather[0].icon)
 
         },
         
         (err) => console.log(err))
-        
-    }
+    })
+    
     const getData = () => {    
         if (isLoading) {
             return <h1>Loading...</h1>
         } 
-        
+        setTimeout(getData, 3000)
         return <h1>{wData.main.temp}</h1>
     }
 
     useEffect(()=> {
         // I will try to use the city name to get data from each item in userList from dashboard
-        {getData()}
         getAxios(props.userCityNotes)
-        setTimeout(getData, 3000)
-    }, [getAxios])
+        
+    }, [])
 
     return (
         <>
         <div className="mx-5 mb-4">
             <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`}/>
-            <h1>{temp}</h1>
-            {getData}
+            <h1>{temp} °F</h1>
+
         </div>
         
         </>

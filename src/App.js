@@ -59,14 +59,11 @@ const App = () => {
     })
   }
 
-
   // will I need to upt getUserList in the brackets?
   useEffect(() => {
     getUserList()
 
   }, [])
-
-// console.log(weatherApi)
 
   return (
     <>
