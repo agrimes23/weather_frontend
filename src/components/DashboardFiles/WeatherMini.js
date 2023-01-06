@@ -14,24 +14,16 @@ const WeatherMini = (props) => {
     const navigate = useNavigate()
 
     const getAxios = useCallback( async (city) => {
-        await axios.get('https://weather-app-eevee.herokuapp.com/api/info/' + city.city)
+        await axios.get('http://localhost:8000/api/info/' + city.city)
         .then((res) => {
             setWData(res.data)
             setTemp(res.data.main.temp)
             setIcon(res.data.weather[0].icon)
-
         },
         
         (err) => console.log(err))
     })
     
-    const getData = () => {    
-        if (isLoading) {
-            return <h1>Loading...</h1>
-        } 
-        setTimeout(getData, 3000)
-        return <h1>{wData.main.temp}</h1>
-    }
 
     useEffect(()=> {
         // I will try to use the city name to get data from each item in userList from dashboard
@@ -44,7 +36,6 @@ const WeatherMini = (props) => {
         <div className="mx-5 mb-4">
             <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`}/>
             <h1>{temp} °F</h1>
-
         </div>
         
         </>
