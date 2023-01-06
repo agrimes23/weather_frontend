@@ -177,8 +177,8 @@ video {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  width: 450px;
-  height: 400px;
+  width: 550px;
+  height: 550px;
   background-color: black;
   border-radius: 10px;
 }

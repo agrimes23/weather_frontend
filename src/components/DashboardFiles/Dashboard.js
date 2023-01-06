@@ -4,8 +4,6 @@ import video2 from '../../assets/weather-vid-2.mp4'
 import axios from 'axios'
 import WeatherMini from './WeatherMini'
 
-
-
 // This will be for adding notes to cities in the list
 const Dashboard = (props) => {
     const weatherData = []
@@ -16,28 +14,21 @@ const Dashboard = (props) => {
 
         props.userList.map((city) => {          
             setTimeout(() => {props.getCityInfo(city.city)}, 2000)
-        //    console.log(props.weatherApi)
         })
         
-        console.log("well hello")
     }
 
     // for edit route
     const handleSendID = (cityWeather) => {
-        // WIP
-        console.log(cityWeather)
         props.setEditID(cityWeather)
         navigate("/mylistcity")
     }
 
     useEffect (() => {
-        // setCityList([])
+
         saveToArray()
 
     }, [props.userList])
-
- 
-// if true, 
 
     return (
         <div className=''>

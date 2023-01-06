@@ -16,11 +16,11 @@ const App = () => {
   const [weatherApi, setWeatherApi] = useState([{}])
   // const [addCity, setAddCity] = useState([{name: "1", state: "2", notes: "3"}])
   const [editID, setEditID] = useState({})
+  const [cityWeather, setCityWeather] = useState({})
 
   // returns user list 
   const getUserList = () => {
-    console.log("I'm running!")
-    axios.get('https://weather-app-eevee.herokuapp.com/api/forecast')
+    axios.get('http://localhost:8000/api/forecast')
     .then((res) => setUserList(res.data),
     (err) => console.log(err)
     )
@@ -28,24 +28,22 @@ const App = () => {
 
   // returns Open Weather API
   const getCityInfo = (cityName) => {
-    console.log("Same here!")
-    axios.get('https://weather-app-eevee.herokuapp.com/api/info/' + cityName)
+    axios.get('http://localhost:8000/api/info/' + cityName)
     .then((res) => setWeatherApi(res.data),
     (err) => console.log(err)
     )
   }
 
   const handleCreate = (addCity) => {
-    axios.post('https://weather-app-eevee.herokuapp.com/api/forecast', addCity)
+    axios.post('http://localhost:8000/api/forecast', addCity)
     .then((res) => {
-      console.log(res.data)
       getUserList()
     })
   }
 
   // might need to change???
   const handleDelete = (event) => {
-    axios.delete('https://weather-app-eevee.herokuapp.com/api/forecast/' + event.target.value)
+    axios.delete('http://localhost:8000/api/forecast/' + event.target.value)
     .then((response) => {
       getUserList()
     })
@@ -53,7 +51,7 @@ const App = () => {
 
   // might need to change ???
   const handleUpdate = (editNote) => {
-    axios.put('https://weather-app-eevee.herokuapp.com/api/forecast/' + editNote.id, editNote)
+    axios.put('http://localhost:8000/api/forecast/' + editNote.id, editNote)
     .then((response) => {
       getUserList()
     })
@@ -71,8 +69,8 @@ const App = () => {
       <Routes>  
         <Route path="/" element={<HomePage getCityInfo={getCityInfo} />}></Route>
         <Route path="/cityweather" element={<ShowCity handleCreate={handleCreate} weatherApi={weatherApi}/>} />
-        <Route path="/mydashboard" element={<Dashboard setEditID={setEditID} setWeatherApi={setWeatherApi} weatherApi={weatherApi} getCityInfo={getCityInfo} userList={userList} handleDelete={handleDelete}/>}></Route>
-        <Route path="/mylistcity" element={<WeatherNotes editID={editID} />}></Route>
+        <Route path="/mydashboard" element={<Dashboard setCityWeather={setCityWeather} setEditID={setEditID} setWeatherApi={setWeatherApi} weatherApi={weatherApi} getCityInfo={getCityInfo} userList={userList} handleDelete={handleDelete}/>}></Route>
+        <Route path="/mylistcity" element={<WeatherNotes cityWeather={cityWeather} editID={editID} />}></Route>
         <Route path="/mylistcity/edit" element={<EditNotes setEditID={setEditID} handleUpdate={handleUpdate} editID={editID} />}></Route>
       </Routes>
     </>
