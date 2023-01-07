@@ -34,8 +34,10 @@ const Dashboard = (props) => {
         <div className=''>
             <video className="background" src={video2} autoPlay loop muted />
             <div className="container-fluid w-100 content">
-                <h1 className="text-center mt-5 dash two">My Map</h1>
-                
+                <div className="container-fluid rounded title-bg d-flex justify-content-center mt-5">
+                    <h1 className=" text-center py-3 dash two">My Map</h1>
+                </div>
+
                 {/* card container */}
                 <div className="container-fluid card-contain w-75 p-5">
 
