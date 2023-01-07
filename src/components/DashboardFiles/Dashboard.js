@@ -2,55 +2,34 @@ import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import video2 from '../../assets/weather-vid-2.mp4'
 import axios from 'axios'
-
-
+import WeatherMini from './WeatherMini'
 
 // This will be for adding notes to cities in the list
 const Dashboard = (props) => {
-    const [cityInfoObj, setCityInfoObj] = useState([{}])
-    const [cityList, setCityList] = useState([])
     const weatherData = []
     const navigate = useNavigate()
-
-    const getAxios = (city) => {
-        axios.get('weather-app-eevee.herokuapp.com/api/info/' + city)
-        .then((res) => {weatherData.push(res.data)},
-        (err) => console.log(err))
-
-        console.log("asewrew" + weatherData)
-    }
 
 
     const saveToArray = () => {
 
         props.userList.map((city) => {          
-            setTimeout(() => {getAxios(city.city)}, 1000)
-           
+            setTimeout(() => {props.getCityInfo(city.city)}, 2000)
         })
-        console.log(weatherData)
-        // cityList.map((weather) => {
-        //     console.log("oh hi ")
-        // })
-        console.log("well hello")
+        
     }
 
+    // for edit route
     const handleSendID = (cityWeather) => {
-        // WIP
-        console.log(cityWeather)
         props.setEditID(cityWeather)
         navigate("/mylistcity")
     }
 
     useEffect (() => {
-        // setCityList([])
+
         saveToArray()
-        // saveToObj()
-        // saveToArray()
-        // saveToObj()
 
     }, [props.userList])
 
- 
     return (
         <div className=''>
             <video className="background" src={video2} autoPlay loop muted />
@@ -58,29 +37,29 @@ const Dashboard = (props) => {
                 <h1 className="text-center mt-5 dash two">My Map</h1>
                 
                 {/* card container */}
-                <div className="container-fluid w-75 p-5">
+                <div className="container-fluid card-contain w-75 p-5">
 
                     {/* card */}
-
-
-                    
                     {props.userList.map((cityWeather) => {
 
-
                         return (
-                            <div className="card bg-dark text-white d-flex flex-row my-3 p-5">
-                            <div className="col-md-6">
-                                <h1 className='rowe'>{cityWeather.city}</h1>
-                            </div>
-                            <div className="col-md-6 text-right">
-                                <img className="weather-icon" src={`http://openweathermap.org/img/wn/${props.weatherApi.weather ? props.weatherApi.weather[0].icon : null}@2x.png`} />
-                                <h5>{cityWeather.temp} °F</h5>
-                                <button className="btn btn-danger" onClick={props.handleDelete} value={cityWeather.id}> - Remove</button>
-                                {/* <Link to="/mylistcity" relative="path"> */}
-                                    <button className="btn btn-warning" onClick={() => {handleSendID(cityWeather)}}>View Details</button>
-                                    {/* </Link> */}
-                                
-                            </div>
+                            <div className="card city-card bg-dark text-white my-3 p-3">
+                                <div className="info-card d-flex flex-row">
+                                    <div className="col-md-6 my-3">
+                                        <h1 className='text-center my-5 rowe'>{cityWeather.city}</h1>
+                                    </div>
+                                    <div className="col-md-6 text-center">
+
+                                        <WeatherMini userCityNotes={cityWeather}/>
+            
+                                    </div>
+                                </div>
+
+                                <div className="button-card mx-auto pb-3">
+                                    <button className="btn mt-2 mx-3 btn-danger" onClick={props.handleDelete} value={cityWeather.id}> - Remove</button>
+                                    
+                                    <button className="btn mt-2 mx-3 btn-warning" onClick={() => {handleSendID(cityWeather)}}>View Details</button>   
+                                </div>
                             </div>
                         )
 

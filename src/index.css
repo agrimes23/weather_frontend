@@ -168,6 +168,11 @@ video {
   color: aqua;
 }
 
+.city-card {
+  max-width: 900px;
+  margin: auto;
+}
+
 /* ------------------------- EDIT PAGE --------------------------- */
 
 .edit-box {
@@ -177,8 +182,8 @@ video {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  width: 450px;
-  height: 400px;
+  width: 550px;
+  height: 550px;
   background-color: black;
   border-radius: 10px;
 }
@@ -213,4 +218,30 @@ video {
   margin-left: 40%;
   margin-top: 25px;
   
+}
+
+@media (max-width: 800px) {
+  .info-card { 
+    display: flex !important;
+    flex-direction: column !important; 
+    align-items: center;
+  }
+
+  .button-card { 
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .city-card {
+    min-width: 300px;
+  }
+  .button-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .card-contain {
+    margin: 2px;
+  }
 }
