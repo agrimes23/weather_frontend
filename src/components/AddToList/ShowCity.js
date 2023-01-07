@@ -15,7 +15,7 @@ const ShowCity = (props) => {
             <div className="container-fluid content w-100 show-city-page">
 
                 {/* shows weather information for specific city */}
-                    <WeatherAPI handleCreate={props.handleCreate} weatherApi={props.weatherApi} />
+                    <WeatherAPI userList={props.userList} handleCreate={props.handleCreate} weatherApi={props.weatherApi} />
             </div>
         </div>
     )
