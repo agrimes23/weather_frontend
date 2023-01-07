@@ -20,7 +20,7 @@ const App = () => {
 
   // returns user list 
   const getUserList = () => {
-    axios.get('http://localhost:8000/api/forecast')
+    axios.get('https://weather-app-eevee.herokuapp.com/api/forecast')
     .then((res) => setUserList(res.data),
     (err) => console.log(err)
     )
@@ -28,36 +28,36 @@ const App = () => {
 
   // returns Open Weather API
   const getCityInfo = (cityName) => {
-    axios.get('http://localhost:8000/api/info/' + cityName)
+    axios.get('https://weather-app-eevee.herokuapp.com/api/info/' + cityName)
     .then((res) => setWeatherApi(res.data),
     (err) => console.log(err)
     )
   }
 
+  // adds a certain city, state, and notes to the db
   const handleCreate = (addCity) => {
-    axios.post('http://localhost:8000/api/forecast', addCity)
+    axios.post('https://weather-app-eevee.herokuapp.com/api/forecast', addCity)
     .then((res) => {
       getUserList()
     })
   }
 
-  // might need to change???
+  // deletes the city, state and notes from db
   const handleDelete = (event) => {
-    axios.delete('http://localhost:8000/api/forecast/' + event.target.value)
+    axios.delete('https://weather-app-eevee.herokuapp.com/api/forecast/' + event.target.value)
     .then((response) => {
       getUserList()
     })
   }
 
-  // might need to change ???
+  // updates notes or state in the database
   const handleUpdate = (editNote) => {
-    axios.put('http://localhost:8000/api/forecast/' + editNote.id, editNote)
+    axios.put('https://weather-app-eevee.herokuapp.com/api/forecast/' + editNote.id, editNote)
     .then((response) => {
       getUserList()
     })
   }
 
-  // will I need to upt getUserList in the brackets?
   useEffect(() => {
     getUserList()
 
@@ -68,7 +68,7 @@ const App = () => {
       <Navbar />
       <Routes>  
         <Route path="/" element={<HomePage getCityInfo={getCityInfo} />}></Route>
-        <Route path="/cityweather" element={<ShowCity handleCreate={handleCreate} weatherApi={weatherApi}/>} />
+        <Route path="/cityweather" element={<ShowCity userList={userList} handleCreate={handleCreate} weatherApi={weatherApi}/>} />
         <Route path="/mydashboard" element={<Dashboard setCityWeather={setCityWeather} setEditID={setEditID} setWeatherApi={setWeatherApi} weatherApi={weatherApi} getCityInfo={getCityInfo} userList={userList} handleDelete={handleDelete}/>}></Route>
         <Route path="/mylistcity" element={<WeatherNotes cityWeather={cityWeather} editID={editID} />}></Route>
         <Route path="/mylistcity/edit" element={<EditNotes setEditID={setEditID} handleUpdate={handleUpdate} editID={editID} />}></Route>

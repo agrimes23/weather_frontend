@@ -11,7 +11,7 @@ const WeatherMini = (props) => {
     const navigate = useNavigate()
 
     const getAxios = useCallback( async (city) => {
-        await axios.get('http://localhost:8000/api/info/' + city.city)
+        await axios.get('https://weather-app-eevee.herokuapp.com/api/info/' + city.city)
         .then((res) => {
 
             setTemp(res.data.main.temp)
@@ -31,10 +31,10 @@ const WeatherMini = (props) => {
 
     return (
         <>
-        <div className="mx-5 mb-4">
-            <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`}/>
-            <h1>{temp} °F</h1>
-        </div>
+            <div className="mx-5 mb-4">
+                <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`}/>
+                <h1>{temp} °F</h1>
+            </div>
         
         </>
     )

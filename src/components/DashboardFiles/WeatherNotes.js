@@ -16,7 +16,7 @@ const WeatherNotes = (props) => {
     const weatherData = []
 
     const getAxios = useCallback( async (city) => {
-        await axios.get('http://localhost:8000/api/info/' + city)
+        await axios.get('https://weather-app-eevee.herokuapp.com/api/info/' + city)
         .then((res) => {
             setWData(res.data)
             setTemp(res.data.main.temp)
@@ -41,13 +41,31 @@ const WeatherNotes = (props) => {
         <>
             <div>
                 <video className="background" src={video5} autoPlay loop muted />
-                <div className='edit-box'>
-                    <h1>{props.editID.city}</h1>
-                    <h2>{props.editID.state}</h2>
-                    <h2>{temp}</h2>
+                <div className='edit-box pt-5'>
+                    <h1>{props.editID.city}, {props.editID.state}</h1>
                     <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`}/>
-                    <h3>Your Notes: {props.editID.notes}</h3>
-                    <button className="btn btn-warning" onClick={redirectToEdit}> Edit </button>
+                    <h2 className="pb-4">{temp} °F</h2>
+                    
+                    <div className="d-flex flex-row justify-content-around">
+                        <h5 className='head'>Max Temp: </h5>
+                        <h5 className="text-white">{wData.main ? wData.main.temp_max : null}</h5>
+                    </div>
+                    <div className="d-flex flex-row justify-content-around">
+                        <h5 className='green'>Min Temp: </h5>
+                        <h5 className="text-white">{wData.main ? wData.main.temp_min : null}</h5>
+                    </div>
+                    <div className="d-flex flex-row justify-content-around">
+                        <h5 className='red'>Humidity: </h5>
+                        <h5 className="text-white">{wData.main ? wData.main.humidity : null}%</h5>
+                    </div>
+                    <div className="d-flex flex-row justify-content-around">
+                        <h5 className='blue'>Visibility: </h5>
+                        <h5 className="text-white">{wData.main ? wData.visibility : null} km</h5>
+                    </div>
+                    
+                    <h3 className="mt-5">Your Notes: </h3>
+                    <h3>{props.editID.notes}</h3>
+                    <button className="btn btn-warning mt-3" onClick={redirectToEdit}> Edit Notes </button>
 
                 </div>
             </div>
