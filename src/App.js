@@ -20,7 +20,7 @@ const App = () => {
 
   // returns user list 
   const getUserList = () => {
-    axios.get('http://localhost:8000/api/forecast')
+    axios.get('https://weather-app-eevee.herokuapp.com/api/forecast')
     .then((res) => setUserList(res.data),
     (err) => console.log(err)
     )
@@ -28,7 +28,7 @@ const App = () => {
 
   // returns Open Weather API
   const getCityInfo = (cityName) => {
-    axios.get('http://localhost:8000/api/info/' + cityName)
+    axios.get('https://weather-app-eevee.herokuapp.com/api/info/' + cityName)
     .then((res) => setWeatherApi(res.data),
     (err) => console.log(err)
     )
@@ -36,7 +36,7 @@ const App = () => {
 
   // adds a certain city, state, and notes to the db
   const handleCreate = (addCity) => {
-    axios.post('http://localhost:8000/api/forecast', addCity)
+    axios.post('https://weather-app-eevee.herokuapp.com/api/forecast', addCity)
     .then((res) => {
       getUserList()
     })
@@ -44,7 +44,7 @@ const App = () => {
 
   // deletes the city, state and notes from db
   const handleDelete = (event) => {
-    axios.delete('http://localhost:8000/api/forecast/' + event.target.value)
+    axios.delete('https://weather-app-eevee.herokuapp.com/api/forecast/' + event.target.value)
     .then((response) => {
       getUserList()
     })
@@ -52,7 +52,7 @@ const App = () => {
 
   // updates notes or state in the database
   const handleUpdate = (editNote) => {
-    axios.put('http://localhost:8000/api/forecast/' + editNote.id, editNote)
+    axios.put('https://weather-app-eevee.herokuapp.com/api/forecast/' + editNote.id, editNote)
     .then((response) => {
       getUserList()
     })
