@@ -32,7 +32,7 @@ const HomePage = (props) => {
                     <div className="home-page rounded text-center p-5 m-5">
                         <h1 className="trip">Find A City</h1>
                         <h3 className="text-white mt-5 w-75 mx-auto">Use the input below to look up weather in a certain city and add cities to your dashboard!</h3>
-                        <div className="input-button-div column d-flex space-between mt-5">
+                        <div className="input-button-div column d-flex justify-content-center space-between mt-5">
                                 <div className="input-div row">
                                     <label htmlFor="enter a city name"></label>
                                     <input type="text" className="rounded search-city p-3" placeholder='Search City' name="city" onChange={handleChange}/>

@@ -103,7 +103,7 @@ const WeatherAPI = (props) => {
                         </div>
                         <div className='d-flex flex-column justify-content-center m-auto'>
 
-                            {checkCity ? <h3 className="show-city-div p-3 rounded text-white">Already added to your dashboard!</h3> : <input type="submit" className='btn btn-info p-3' value="+ Add to List" /> }
+                            {checkCity ? <h3 className="show-city-div text-center p-3 rounded text-white">Already added to your dashboard!</h3> : <input type="submit" className='btn btn-info p-3' value="+ Add to List" /> }
                             
                         </div>
                     </div>
