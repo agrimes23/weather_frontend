@@ -16,7 +16,7 @@ const WeatherNotes = (props) => {
     const weatherData = []
 
     const getAxios = useCallback( async (city) => {
-        await axios.get('https://weather-app-eevee.herokuapp.com/api/info/' + city)
+        await axios.get('http://localhost:8000/api/info/' + city)
         .then((res) => {
             setWData(res.data)
             setTemp(res.data.main.temp)

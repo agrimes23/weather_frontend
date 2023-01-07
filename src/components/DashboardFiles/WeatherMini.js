@@ -7,18 +7,16 @@ const WeatherMini = (props) => {
     
     const [icon, setIcon] = useState()
     const [temp, setTemp] = useState()
-    const [wData, setWData] = useState({})
-    const [isLoading, setIsLoading] = useState(true)
 
-    const weatherData = []
     const navigate = useNavigate()
 
     const getAxios = useCallback( async (city) => {
-        await axios.get('https://weather-app-eevee.herokuapp.com/api/info/' + city.city)
+        await axios.get('http://localhost:8000/api/info/' + city.city)
         .then((res) => {
-            setWData(res.data)
+
             setTemp(res.data.main.temp)
             setIcon(res.data.weather[0].icon)
+
         },
         
         (err) => console.log(err))
