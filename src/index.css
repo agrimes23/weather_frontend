@@ -47,7 +47,6 @@ li {
   letter-spacing: 1.5px;
 }
 
-
 .two {
   font-size: 3em;
   font-weight: bolder;
@@ -168,6 +167,16 @@ video {
   color: aqua;
 }
 
+.city-card {
+  max-width: 900px;
+  margin: auto;
+}
+
+.title-bg {
+  background: rgba(9, 1, 56, 0.95);
+  max-width: 900px;
+}
+
 /* ------------------------- EDIT PAGE --------------------------- */
 
 .edit-box {
@@ -178,7 +187,7 @@ video {
   transform: translate(-50%, -50%);
   text-align: center;
   width: 550px;
-  height: 550px;
+  height: 700px;
   background-color: black;
   border-radius: 10px;
 }
@@ -199,7 +208,7 @@ video {
   color: rgb(148, 82, 210);
   font-family: 'Pacifico', cursive;
   padding-top: 10px;
-  padding-bottom: 50px;
+  padding-bottom: 15px;
 }
 
 .edit-box textarea {
@@ -212,5 +221,45 @@ video {
   justify-content: center;
   margin-left: 40%;
   margin-top: 25px;
+  
+}
+
+@media (max-width: 800px) {
+  .info-card { 
+    display: flex !important;
+    flex-direction: column !important; 
+    align-items: center;
+  }
+
+  .button-card { 
+    display: flex;
+    align-items: center;
+  }
+  .input-button-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .input-div {
+    display: flex;
+    flex-direction: column;
+  }
+  .button-div {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 500px) {
+  .city-card {
+    min-width: 300px;
+  }
+  .button-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .card-contain {
+    margin: 2px;
+  }
   
 }

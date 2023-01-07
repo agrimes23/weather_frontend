@@ -7,7 +7,8 @@ const WeatherAPI = (props) => {
     const [addCity, setAddCity] = useState(emptyCity)
     const [sunriseTime, setSunriseTime] = useState("")
     const [sunsetTime, setSunsetTime] = useState("")
-    const [cityName, setCityName] = useState("")
+    const [checkCity, setCheckCity] = useState(false)
+    // let checkCity = false
     // const cityName = ""
 
     const getRiseTime = () => {
@@ -30,20 +31,37 @@ const WeatherAPI = (props) => {
         setSunsetTime(`${hour}:${min}:${sec}`)
     }
 
+
+    const checkCities = () => {
+        props.userList.map((dbCity) => {
+            if (dbCity.city === props.weatherApi.name) {
+                setCheckCity(true)
+            }
+        })
+    }
+    // const hideButton = (event) => {
+    //     setTimeout(1000)
+        
+    // }
+
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(addCity)
         props.handleCreate(addCity)
+        setCheckCity(true)
     }
 
     useEffect (() => {
-
+        setCheckCity(false)
+        
         setAddCity({...addCity, city: (props.weatherApi.name ? props.weatherApi.name : null), state: "Write the state here", notes: "Write any notes here"})
         getRiseTime()
         getSetTime()
 
+        checkCities()
+
     }, [props.weatherApi])
-    
+
     
         return (
             <>
@@ -83,8 +101,10 @@ const WeatherAPI = (props) => {
                                 <h5>{sunsetTime}</h5>
                             </div>
                         </div>
-                        <div className='d-flex flex-column justify-content-center m-auto'>                            
-                            <input type="submit" className="btn btn-info p-3" value="+ Add to List" /> 
+                        <div className='d-flex flex-column justify-content-center m-auto'>
+
+                            {checkCity ? <h3 className="show-city-div text-center p-3 rounded text-white">Already added to your dashboard!</h3> : <input type="submit" className='btn btn-info p-3' value="+ Add to List" /> }
+                            
                         </div>
                     </div>
                 </form>

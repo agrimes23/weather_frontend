@@ -34,27 +34,33 @@ const Dashboard = (props) => {
         <div className=''>
             <video className="background" src={video2} autoPlay loop muted />
             <div className="container-fluid w-100 content">
-                <h1 className="text-center mt-5 dash two">My Map</h1>
-                
+                <div className="container-fluid rounded title-bg d-flex justify-content-center mt-5">
+                    <h1 className=" text-center py-3 dash two">My Map</h1>
+                </div>
+
                 {/* card container */}
-                <div className="container-fluid w-75 p-5">
+                <div className="container-fluid card-contain w-75 p-5">
 
                     {/* card */}
                     {props.userList.map((cityWeather) => {
 
                         return (
-                            <div className="card bg-dark text-white d-flex flex-row my-3 p-5">
-                                <div className="col-md-6">
-                                    <h1 className='my-5 rowe'>{cityWeather.city}</h1>
+                            <div className="card city-card bg-dark text-white my-3 p-3">
+                                <div className="info-card d-flex flex-row">
+                                    <div className="col-md-6 my-3">
+                                        <h1 className='text-center my-5 rowe'>{cityWeather.city}</h1>
+                                    </div>
+                                    <div className="col-md-6 text-center">
+
+                                        <WeatherMini userCityNotes={cityWeather}/>
+            
+                                    </div>
                                 </div>
-                                <div className="col-md-6 mb-3 text-right">
 
-                                    <WeatherMini userCityNotes={cityWeather}/>
-
+                                <div className="button-card mx-auto pb-3">
                                     <button className="btn mt-2 mx-3 btn-danger" onClick={props.handleDelete} value={cityWeather.id}> - Remove</button>
                                     
-                                    <button className="btn mt-2 mx-3 btn-warning" onClick={() => {handleSendID(cityWeather)}}>View Details</button>
-                                                    
+                                    <button className="btn mt-2 mx-3 btn-warning" onClick={() => {handleSendID(cityWeather)}}>View Details</button>   
                                 </div>
                             </div>
                         )

@@ -34,6 +34,7 @@ const App = () => {
     )
   }
 
+  // adds a certain city, state, and notes to the db
   const handleCreate = (addCity) => {
     axios.post('https://weather-app-eevee.herokuapp.com/api/forecast', addCity)
     .then((res) => {
@@ -41,7 +42,7 @@ const App = () => {
     })
   }
 
-  // might need to change???
+  // deletes the city, state and notes from db
   const handleDelete = (event) => {
     axios.delete('https://weather-app-eevee.herokuapp.com/api/forecast/' + event.target.value)
     .then((response) => {
@@ -49,7 +50,7 @@ const App = () => {
     })
   }
 
-  // might need to change ???
+  // updates notes or state in the database
   const handleUpdate = (editNote) => {
     axios.put('https://weather-app-eevee.herokuapp.com/api/forecast/' + editNote.id, editNote)
     .then((response) => {
@@ -57,7 +58,6 @@ const App = () => {
     })
   }
 
-  // will I need to upt getUserList in the brackets?
   useEffect(() => {
     getUserList()
 
@@ -68,7 +68,7 @@ const App = () => {
       <Navbar />
       <Routes>  
         <Route path="/" element={<HomePage getCityInfo={getCityInfo} />}></Route>
-        <Route path="/cityweather" element={<ShowCity handleCreate={handleCreate} weatherApi={weatherApi}/>} />
+        <Route path="/cityweather" element={<ShowCity userList={userList} handleCreate={handleCreate} weatherApi={weatherApi}/>} />
         <Route path="/mydashboard" element={<Dashboard setCityWeather={setCityWeather} setEditID={setEditID} setWeatherApi={setWeatherApi} weatherApi={weatherApi} getCityInfo={getCityInfo} userList={userList} handleDelete={handleDelete}/>}></Route>
         <Route path="/mylistcity" element={<WeatherNotes cityWeather={cityWeather} editID={editID} />}></Route>
         <Route path="/mylistcity/edit" element={<EditNotes setEditID={setEditID} handleUpdate={handleUpdate} editID={editID} />}></Route>
