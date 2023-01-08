@@ -28,7 +28,7 @@ const HomePage = (props) => {
         <div className='background'>
             <video src={videoBackground} autoPlay loop muted />
             <form onSubmit={handleSubmit}>
-                <div className="container-fluid d-flex flex-column align-items-center content" >
+                <div className="container-fluid d-flex flex-column align-items-center content mb-5" >
                     <div className="home-page rounded text-center p-5 m-5">
                         <h1 className="trip">Find A City</h1>
                         <h3 className="text-white mt-5 w-75 mx-auto">Use the input below to look up weather in a certain city and add cities to your dashboard!</h3>

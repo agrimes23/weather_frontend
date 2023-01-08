@@ -78,6 +78,7 @@ video {
 .content {
   position: absolute;
   top: 20%;
+  margin: auto;
 }
 .trip {
   color: yellow;
