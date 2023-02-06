@@ -1,6 +1,7 @@
 # Weather App Using Open Weather API
 ### Allows user to make notes on each location they add to their dashboard
 ### Link to the Backend of the Project: https://github.com/ChrisLeft7/backend-weather
+### Live Site: https://evening-reef-65787.herokuapp.com/
 <hr />
 
 ### Features of this App:
