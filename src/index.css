@@ -180,15 +180,18 @@ video {
 
 /* ------------------------- EDIT PAGE --------------------------- */
 
+
+.city-details {
+  position: absolute;
+  top: 20%;
+}
+
 .edit-box {
   position: absolute;
-  margin: 0;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
   text-align: center;
   width: 550px;
-  height: 700px;
+
   background-color: black;
   border-radius: 10px;
 }
@@ -196,8 +199,6 @@ video {
   color: rgb(223, 97, 118);
   font-family: 'Alfa Slab One', cursive;
   padding-top: 10px;
-
-
 }
 .edit-box h2 {
   color: rgb(61, 186, 243);
@@ -248,6 +249,11 @@ video {
   .button-div {
     display: flex;
     flex-direction: row;
+  }
+}
+@media (max-width: 650px) {
+  .edit-box {
+    width: 80vw;
   }
 }
 
