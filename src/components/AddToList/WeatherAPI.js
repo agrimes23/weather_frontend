@@ -39,11 +39,6 @@ const WeatherAPI = (props) => {
             }
         })
     }
-    // const hideButton = (event) => {
-    //     setTimeout(1000)
-        
-    // }
-
 
     const handleSubmit = (e) => {
         e.preventDefault()

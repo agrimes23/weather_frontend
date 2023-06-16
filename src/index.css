@@ -262,5 +262,8 @@ video {
   .card-contain {
     margin: 2px;
   }
+  .hp-desc {
+    width: 100% !important;
+  }
   
 }
