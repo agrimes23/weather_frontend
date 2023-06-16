@@ -128,7 +128,8 @@ video {
 }
 
 .info-div {
-  max-width: 700px;
+  width: 90vw;
+  max-width: 600px;
   margin-left: auto !important;
   margin-right: auto !important;
 }
@@ -299,6 +300,19 @@ video {
   .show-city-div img, h2 {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .info-button-container {
+    flex-direction: column !important;
+    align-items: center;
+    margin-top: 30px;
+    width: 100vw !important;
+  }
+
+  .add-button {
+    margin-top: 30px;
+    margin-left: auto !important;
+    margin-right: auto !important
   }
 
 }
