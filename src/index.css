@@ -59,6 +59,7 @@ li {
 
 .search-city {
   width: 50vw;
+  max-width: 800px;
   background: rgba(46, 46, 46, 1);
   border: solid 1px rgb(12, 12, 12);
   color: white;
@@ -111,9 +112,35 @@ video {
 }
 /* ------------------ City Weather Show Page ------------------ */
 
+.show-city-page {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .show-city-div {
   background: rgba(0, 0, 0, 0.8);
 }
+
+.top-div {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.info-div {
+  max-width: 700px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.show-city-div img {
+  max-width: 100px;
+}
+
+.add-button {
+  margin-right: auto !important;
+}
+
 .show-title {
   color: yellow;
   font-weight: bold;
@@ -255,6 +282,25 @@ video {
   .edit-box {
     width: 80vw;
   }
+}
+
+@media (max-width: 600px) {
+  .city-details-title {
+    flex-direction: column;
+    margin: 0px !important;
+  }
+
+  .show-city-div {
+    font-size: 0.8rem;
+    margin: 0px !important;
+    margin-top: 10px !important;
+  }
+
+  .show-city-div img, h2 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
 
 @media (max-width: 500px) {

@@ -35,10 +35,10 @@ const HomePage = (props) => {
                         <div className="input-button-div column d-flex justify-content-center space-between my-5">
                                 <div className="input-div row">
                                     <label htmlFor="enter a city name"></label>
-                                    <input type="text" className="rounded search-city p-3" placeholder='Search City' name="city" onChange={handleChange}/>
+                                    <input type="text" className="rounded search-city" placeholder='Search City' name="city" onChange={handleChange}/>
                                 </div>
-                                <div className="button-div d-flex align-items-center">
-                                    <input type="submit" className="row mt-4 py-4 px-3 btn btn-info" value="Get Weather Info"/>
+                                <div className="button-div d-flex p-3 align-items-center">
+                                    <input type="submit" className="row mt-4 py-2 px-3 btn btn-info" value="Get Weather Info"/>
                                 </div>
                         </div>
                     </div>

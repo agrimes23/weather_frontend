@@ -61,15 +61,15 @@ const WeatherAPI = (props) => {
         return (
             <>
                 <form onSubmit={handleSubmit}>
-                    <div className="show-city-div rounded d-flex flex-column align-items-center m-5 p-5">
+                    <div className="show-city-div top-div rounded d-flex flex-column align-items-center">
                     {/* top part */}
-                        <div className="d-flex justify-content-around w-100 head">
+                        <div className="d-flex justify-content-around w-100 head m-auto p-5 city-details-title">
                             <h2 className="city-text text-white my-auto head">{props.weatherApi ? props.weatherApi.name : null}</h2>
                             <img className="weather-icon" src={`http://openweathermap.org/img/wn/${props.weatherApi.weather ? props.weatherApi.weather[0].icon : null}@2x.png`}></img>
                     </div>
                     </div>
-                    <div className='d-flex flex-row'>
-                        <div className="show-city-div rounded d-flex flex-column w-50 m-5 p-5 text-white">
+                    <div className='d-flex flex-row mx-auto info-button-container'>
+                        <div className="show-city-div info-div rounded d-flex flex-column w-50 m-5 p-5 text-white">
                             <div className="d-flex flex-row justify-content-around">
                                 <h5 className='head'>Max Temp: </h5>
                                 <h5>{props.weatherApi.main ? props.weatherApi.main.temp_max : null} °F</h5>
@@ -96,7 +96,7 @@ const WeatherAPI = (props) => {
                                 <h5>{sunsetTime}</h5>
                             </div>
                         </div>
-                        <div className='d-flex flex-column justify-content-center m-auto'>
+                        <div className='d-flex flex-column justify-content-center add-button'>
 
                             {checkCity ? <h3 className="show-city-div text-center p-3 rounded text-white">Already added to your dashboard!</h3> : <input type="submit" className='btn btn-info p-3' value="+ Add to List" /> }
                             
