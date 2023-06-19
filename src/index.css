@@ -197,7 +197,6 @@ video {
 
 .city-card {
   max-width: 900px;
-  margin: auto;
 }
 
 .title-bg {
@@ -314,16 +313,17 @@ video {
 }
 
 @media (max-width: 500px) {
+
   .city-card {
-    min-width: 300px;
+    width: 80vw;
+    margin-left: 0px !important;
   }
+
   .button-card {
     display: flex;
     flex-direction: column;
   }
-  .card-contain {
-    margin: 2px;
-  }
+
   .hp-desc {
     width: 100% !important;
   }
@@ -334,6 +334,14 @@ video {
   
   .edit-box textarea, .edit-box input {
     width: 60vw;
+  }
+
+  .info-card div {
+    margin: 0px !important;
+  }
+
+  .info-card h1 {
+    margin-bottom: 0px !important;
   }
 
 }

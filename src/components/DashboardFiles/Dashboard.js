@@ -39,16 +39,16 @@ const Dashboard = (props) => {
                 </div>
 
                 {/* card container */}
-                <div className="container-fluid card-contain w-75 p-5">
+                <div className="container-fluid card-contain mx-auto">
 
                     {/* card */}
                     {props.userList.map((cityWeather) => {
 
                         return (
-                            <div className="card city-card bg-dark text-white my-3 p-3">
+                            <div className="card city-card bg-dark text-white mx-auto my-3 p-3">
                                 <div className="info-card d-flex flex-row">
-                                    <div className="col-md-6 my-3">
-                                        <h1 className='text-center my-5 rowe'>{cityWeather.city}</h1>
+                                    <div className="col-md-6">
+                                        <h1 className='text-center mt-5 rowe'>{cityWeather.city}</h1>
                                     </div>
                                     <div className="col-md-6 text-center">
 
