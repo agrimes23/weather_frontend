@@ -345,4 +345,18 @@ video {
     margin-bottom: 0px !important;
   }
 
+  .city-details-title h2 {
+    font-size: 1.8rem;
+  }
+
+  .show-city-div {
+    padding-left: 0% !important;
+    padding-right: 0% !important;
+  }
+
+  .show-city-div h5 {
+    font-size: 0.9rem;
+  }
+
+
 }
