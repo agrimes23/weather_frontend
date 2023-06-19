@@ -329,3 +329,11 @@ video {
   }
   
 }
+
+@media (max-width: 370px) {
+  
+  .edit-box textarea, .edit-box input {
+    width: 60vw;
+  }
+
+}
