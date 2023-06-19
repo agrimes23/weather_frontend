@@ -68,8 +68,8 @@ const WeatherAPI = (props) => {
                             <img className="weather-icon" src={`http://openweathermap.org/img/wn/${props.weatherApi.weather ? props.weatherApi.weather[0].icon : null}@2x.png`}></img>
                     </div>
                     </div>
-                    <div className='d-flex flex-row mx-auto info-button-container'>
-                        <div className="show-city-div info-div rounded d-flex flex-column w-50 m-5 p-5 text-white">
+                    <div className='d-flex flex-row mx-auto my-5 info-button-container'>
+                        <div className="show-city-div info-div rounded d-flex flex-column m-5 p-5 text-white ">
                             <div className="d-flex flex-row justify-content-around">
                                 <h5 className='head'>Max Temp: </h5>
                                 <h5>{props.weatherApi.main ? props.weatherApi.main.temp_max : null} °F</h5>
