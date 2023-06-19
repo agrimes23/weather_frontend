@@ -92,7 +92,6 @@ video {
   top: 20%;
   justify-content: center;
   align-items: center;
-
 }
 
 .back {
@@ -216,7 +215,6 @@ video {
 
 .edit-box {
   position: absolute;
-
   text-align: center;
   width: 550px;
 
@@ -244,14 +242,12 @@ video {
 .edit-box textarea {
   margin-top: 30px;
   border-radius: 10px;
-  text-align: center;
 }
 .edit-box input {
   display: flex;
   justify-content: center;
-  margin-left: 40%;
-  margin-top: 25px;
-  
+  margin-left: auto;
+  margin-right: auto; 
 }
 
 @media (max-width: 800px) {

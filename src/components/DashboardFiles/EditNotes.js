@@ -21,13 +21,16 @@ const EditNotes = (props) => {
 
     return (
         <>
-        <video className="background" src={video2} autoPlay loop muted />
-        <form className='edit-box' onSubmit={handleSubmit}>
-            <h1>{props.editID.city}</h1>
-            <input type="text" name="state" value={notes.state} onChange={handleChange}/>
-            <textarea rows="5" cols="30" type="text" name="notes" value={notes.notes} onChange={handleChange}/>
-            <input type="submit" className="btn btn-info"/>
-        </form>
+        
+            <video className="background" src={video2} autoPlay loop muted />
+            <div className="container-fluid d-flex h-100 w-100 justify-content-center">
+            <form className='edit-box entry py-3' onSubmit={handleSubmit}>
+                <h1>{props.editID.city}</h1>
+                <input type="text" name="state" value={notes.state} onChange={handleChange}/>
+                <textarea rows="5" cols="30" type="text" name="notes" value={notes.notes} onChange={handleChange}/>
+                <input type="submit" className="btn btn-info my-3"/>
+            </form>
+        </div>
         </>
     )
 }
