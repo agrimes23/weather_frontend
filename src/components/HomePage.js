@@ -25,15 +25,15 @@ const HomePage = (props) => {
     }
 
     return (
-        <div className='background'>
-            <video src={videoBackground} autoPlay loop muted />
-            <div className="overflow-auto py-5 h-100">
+        <div>
+            <video className='background' src={videoBackground} autoPlay loop muted />
+            <div className="overflow-auto py-5 my-5 h-100">
             <form className="" onSubmit={handleSubmit}>
-                <div className="container-fluid d-flex flex-column align-items-center content" >
+                <div className="container-fluid d-flex flex-column align-items-center content " >
                     <div className="home-page rounded text-center p-3 mx-2 ">
                         <h1 className="trip mt-5">Find A City</h1>
                         <h3 className="hp-desc text-white mt-5 w-75 mx-auto">Use the input below to look up weather in a certain city and add cities to your dashboard!</h3>
-                        <div className="input-button-div column d-flex justify-content-center space-between my-5">
+                        <div className="input-button-div column d-flex justify-content-center space-between mt-5">
                                 <div className="input-div row">
                                     <label htmlFor="enter a city name"></label>
                                     <input type="text" className="rounded search-city" placeholder='Search City' name="city" onChange={handleChange}/>

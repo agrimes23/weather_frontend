@@ -10,8 +10,8 @@ const ShowCity = (props) => {
     // // it's only causing errors when we try to show both on the same page. async will probably fix that but idk how to use it atm.
 
     return (
-        <div className='background'>
-            <video src={video3} autoPlay loop muted />
+        <div>
+            <video className="background h-100" src={video3} autoPlay loop muted />
             <div className="container-fluid content w-100 show-city-page">
 
                 {/* shows weather information for specific city */}

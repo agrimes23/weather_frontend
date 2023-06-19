@@ -217,7 +217,7 @@ video {
   position: absolute;
   text-align: center;
   width: 550px;
-
+  margin: auto;
   background-color: black;
   border-radius: 10px;
 }

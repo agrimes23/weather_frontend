@@ -39,9 +39,10 @@ const WeatherNotes = (props) => {
 
     return (
         <>
+            
+            <video className="background" src={video5} autoPlay loop muted />
             <div className="container-fluid d-flex flex-column align-items-center">
-                <video className="background" src={video5} autoPlay loop muted />
-                <div className='edit-box pt-5 m-auto city-details '>
+                <div className=' edit-box pt-5 mx-auto city-details '>
                     <h1>{props.editID.city}, {props.editID.state}</h1>
                     <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`}/>
                     <h2 className="pb-4">{temp} °F</h2>
