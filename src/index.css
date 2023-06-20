@@ -302,7 +302,7 @@ video {
     flex-direction: column !important;
     align-items: center;
     margin-top: 30px;
-    width: 100vw !important;
+    width: 90vw !important;
   }
 
   .add-button {

@@ -30,7 +30,7 @@ const HomePage = (props) => {
             <div className="py-5 h-100">
             <form className="" onSubmit={handleSubmit}>
                 <div className="container-fluid d-flex flex-column align-items-center content " >
-                    <div className="home-page rounded text-center p-3 mx-2 ">
+                    <div className="home-page rounded text-center p-3 mx-2 my-4">
                         <h1 className="trip mt-5">Find A City</h1>
                         <h3 className="hp-desc text-white mt-5 w-75 mx-auto">Use the input below to look up weather in a certain city and add cities to your dashboard!</h3>
                         <div className="input-button-div column d-flex justify-content-center space-between mt-5 pb-5">

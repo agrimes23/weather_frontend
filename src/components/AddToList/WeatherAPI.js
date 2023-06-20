@@ -63,7 +63,7 @@ const WeatherAPI = (props) => {
                 <form onSubmit={handleSubmit}>
                     <div className="show-city-div top-div rounded d-flex flex-column align-items-center">
                     {/* top part */}
-                        <div className="d-flex justify-content-around w-100 head m-auto p-5 city-details-title">
+                        <div className="d-flex justify-content-around head m-auto p-5 city-details-title">
                             <h2 className="city-text text-white my-auto head">{props.weatherApi ? props.weatherApi.name : null}</h2>
                             <img className="weather-icon" src={`http://openweathermap.org/img/wn/${props.weatherApi.weather ? props.weatherApi.weather[0].icon : null}@2x.png`}></img>
                     </div>
