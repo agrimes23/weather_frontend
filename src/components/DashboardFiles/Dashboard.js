@@ -31,10 +31,10 @@ const Dashboard = (props) => {
     }, [props.userList])
 
     return (
-        <div className=''>
+        <div>
             <video className="background" src={video2} autoPlay loop muted />
-            <div className="container-fluid w-100 content">
-                <div className="container-fluid rounded title-bg d-flex justify-content-center mt-5">
+            <div className="container-fluid content">
+                <div className="container-fluid rounded title-bg d-flex justify-content-center">
                     <h1 className=" text-center py-3 dash two">My Map</h1>
                 </div>
 
